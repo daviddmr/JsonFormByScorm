@@ -1,0 +1,182 @@
+<div  layout="column" ng-cloak class="divMainFormPage">
+
+  <md-input-container class="md-block">
+      <label class="labelTitlePages">{{title}}</label>
+  </md-input-container>
+
+  <form name="scormForm" layout="column" >
+  	
+    <md-input-container class="md-block input-title-form top-element">
+      <label>Título do Scorm *</label>
+      <input ng-model="scorm.title" required name="title">
+      <div ng-messages="scormForm.title.$error">
+        <div ng-message="required">É obrigatório informar o título do Scorm.</div>
+      </div>
+    </md-input-container>
+
+    <div layout="row">
+      <md-input-container class ="md-block input-title-form" >
+        <label>Caminho do Index*</label>
+        <input ng-model="scorm.indexPath" required name="indexPath">
+        <div ng-messages="scormForm.indexPath.$error">
+          <div ng-message="required">É obrigatório informar o caminho do Index.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class ="md-block input-title-form right-elements">
+        <label>Caminho do Index para deficientes visuais*</label>
+        <input ng-model="scorm.blindIndexPath" required name="blindIndexPath">
+        <div ng-messages="scormForm.blindIndexPath.$error">
+          <div ng-message="required">É obrigatório informar o caminho do Index para deficientes visuais.</div>
+        </div>
+      </md-input-container>
+
+    </div>
+
+    <div layout="row">
+      <md-input-container class ="md-block input-title-form">
+        <label>Caminho do diretório dos tópicos*</label>
+        <input ng-model="scorm.topicsPath" required name="topicsPath">
+        <div ng-messages="scormForm.topicsPath.$error">
+          <div ng-message="required">É obrigatório informar o caminho do diretório dos tópicos.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class ="md-block input-title-form right-elements">
+        <label>Caminho do diretório dos tópicos para deficientes visuais*</label>
+        <input ng-model="scorm.blindTopicsPath" required name="blindTopicsPath">
+        <div ng-messages="scormForm.blindTopicsPath.$error">
+          <div ng-message="required">É obrigatório informar o caminho do diretório dos tópicos para deficientes visuais.</div>
+        </div>
+      </md-input-container>
+
+    </div>
+
+    <md-input-container class="md-block input-title-form">
+      <label>URL base para os vídeos em libras*</label>
+      <input ng-model="scorm.aslVideoPath" required name="aslVideoPath">
+      <div ng-messages="scormForm.aslVideoPath.$error">
+        <div ng-message="required">É obrigatório informar a URL base para os vídeos em libras.</div>
+      </div>
+    </md-input-container>
+
+    <div>
+      <p>Tipo de Scrum</p>
+      <select ng-model="scorm.type" required>
+        <option value="">Selecione um tipo de SCORM</option>
+        <option value="CDD">CDD</option>
+        <option value="WebAula">WebAula</option>
+      </select>
+
+    </div>
+
+    <!--COMBO BOX-->
+
+    <h3>Tópicos</h3>
+
+    <div ng-model="$index" ng-repeat="topic in scorm.topics">
+
+      <h4>Tópico {{$index+1}}</h4>
+      <div layout="row" style="margin-top: 0px">
+        <md-input-container class ="md-block input-title-form">
+          <label>Título do tópico*</label>
+          <input ng-model="topic.topicsPath" required name="topicTitle">
+          <div ng-messages="scormForm.topicTitle.$error">
+            <div ng-message="required">É obrigatório informar o título do tópico.</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class ="md-block input-title-form right-elements">
+          <label>Nome completo do arquivo do tópico*</label>
+          <input ng-model="topic.fullFileName" required name="fullFileName">
+          <div ng-messages="scormForm.fullFileName.$error">
+            <div ng-message="required">É obrigatório informar o nome completo do arquivo do tópico.</div>
+          </div>
+        </md-input-container>
+
+        <md-button style="margin-left: 10px; margin-top: 10px" ng-click="removeTopic($index)" class="md-fab md-mini" aria-label="Favorite">
+          <md-icon class="material-icons md-dark">delete</md-icon>
+        </md-button>
+
+      </div>
+
+      <h3>Páginas</h3>
+
+      <div ng-model="$index" ng-repeat="page in topic.pages">
+
+        <h4>Página {{$index + 1}}</h4>
+        <div layout="row" style="margin-top: 0px">
+          <md-input-container class ="md-block input-title-form">
+            <label>Título da página*</label>
+            <input ng-model="page.title" required name="pageTitle">
+            <div ng-messages="scormForm.pageTitle.$error">
+              <div ng-message="required">É obrigatório informar o título da página.</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class ="md-block input-title-form right-elements">
+            <label>Tag ID da página*</label>
+            <input ng-model="page.tagID" required name="tagID">
+            <div ng-messages="scormForm.tagID.$error">
+              <div ng-message="required">É obrigatório informar a Tag ID da página.</div>
+            </div>
+          </md-input-container>
+
+          <md-button style="margin-left: 10px; margin-top: 10px" ng-click="removePage($parent.$index, $index)" class="md-fab md-mini" aria-label="Favorite">
+            <md-icon class="material-icons md-dark">delete</md-icon>
+          </md-button>
+        </div>
+
+        <h4>Vídeos</h4>
+
+        <div ng-model="$index" ng-repeat="video in page.signVideos">
+
+          <h4>Vídeo em libras {{$index + 1}}</h4>
+          <div layout="row" style="margin-top: 0px">
+            <md-input-container class ="md-block input-title-form">
+              <label>Nome completo do vídeo (com extensão)*</label>
+              <input ng-model="video.name" required name="videoName">
+              <div ng-messages="scormForm.videoName.$error">
+                <div ng-message="required">É obrigatório informar o nome completo do vídeo.</div>
+              </div>
+            </md-input-container>
+
+            <md-button style="margin-left: 10px; margin-top: 10px" ng-click="removeVideo($parent.$parent.$index, $parent.$index, $index)" class="md-fab md-mini" aria-label="Favorite">
+              <md-icon class="material-icons md-dark">delete</md-icon>
+            </md-button>
+
+          </div>
+
+        </div>
+
+        <div style="margin-right: 60px" layout="row" layout-align="end center">
+          <md-button style="width: 150px;" class="md-raised md-primary" ng-click="addNewVideo($parent.$index, $index)">Novo vídeo +</md-button>
+        </div>
+          
+        <hr style="display: block; border-style: inset; border-width: 1px; margin-right: 50px">
+
+      </div>
+
+      <div style="margin-right: 60px" layout="row" layout-align="end center">
+        <md-button style="width: 150px;" class="md-raised md-primary" ng-click="addNewPage($index)">Nova página +</md-button>
+      </div>
+
+     <hr style="display: block; border-style: inset; border-width: 1px; margin-right: 50px">
+
+    </div>
+
+    <div style="margin-right: 60px" layout="row" layout-align="end center">
+      <md-button style="width: 150px;" class="md-raised md-primary" ng-click="addNewTopic()">Novo tópico +</md-button>
+    </div>
+
+    <!-- <div layout="row" layout-align="end center" class="divFootPageFormPage">
+        <md-button ng-disabled="false" ng-click="clearForm(userForm) ">{{titleOfClearButton}}</md-button>
+        <md-button class="md-raised md-primary" ng-disabled="userForm.$invalid" ng-click="addUpdateUser(user)">{{titleOfButton}}</md-button>
+    </div> -->
+
+  </form>
+
+
+  {{scorm}}
+
+</div>

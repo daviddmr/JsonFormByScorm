@@ -3,7 +3,8 @@ angular.module("jsonForm", ["ngRoute", "ngMaterial", "ngMessages", "ngAnimate"])
         function($routeProvider, $mdThemingProvider) {
             $routeProvider
                 .when('/form', {
-                    templateUrl: 'app/views/form.html'
+                    templateUrl: 'app/views/form.html',
+                    controller: 'formCtrl'
                 })
                 .otherwise('/form');
 

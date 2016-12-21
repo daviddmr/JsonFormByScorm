@@ -7,7 +7,7 @@
   <form name="scormForm" layout="column" >
   	
     <md-input-container class="md-block input-title-form top-element">
-      <label>Título do Scorm *</label>
+      <label>Título do Scorm</label>
       <input ng-model="scorm.title" required name="title">
       <div ng-messages="scormForm.title.$error">
         <div ng-message="required">É obrigatório informar o título do Scorm.</div>
@@ -16,7 +16,7 @@
 
     <div layout="row">
       <md-input-container class ="md-block input-title-form" >
-        <label>Caminho do Index*</label>
+        <label>Caminho do Index</label>
         <input ng-model="scorm.indexPath" required name="indexPath">
         <div ng-messages="scormForm.indexPath.$error">
           <div ng-message="required">É obrigatório informar o caminho do Index.</div>
@@ -24,7 +24,7 @@
       </md-input-container>
 
       <md-input-container class ="md-block input-title-form right-elements">
-        <label>Caminho do Index para deficientes visuais*</label>
+        <label>Caminho do Index para deficientes visuais</label>
         <input ng-model="scorm.blindIndexPath" required name="blindIndexPath">
         <div ng-messages="scormForm.blindIndexPath.$error">
           <div ng-message="required">É obrigatório informar o caminho do Index para deficientes visuais.</div>
@@ -35,7 +35,7 @@
 
     <div layout="row">
       <md-input-container class ="md-block input-title-form">
-        <label>Caminho do diretório dos tópicos*</label>
+        <label>Caminho do diretório dos tópicos</label>
         <input ng-model="scorm.topicsPath" required name="topicsPath">
         <div ng-messages="scormForm.topicsPath.$error">
           <div ng-message="required">É obrigatório informar o caminho do diretório dos tópicos.</div>
@@ -43,7 +43,7 @@
       </md-input-container>
 
       <md-input-container class ="md-block input-title-form right-elements">
-        <label>Caminho do diretório dos tópicos para deficientes visuais*</label>
+        <label>Caminho do diretório dos tópicos para deficientes visuais</label>
         <input ng-model="scorm.blindTopicsPath" required name="blindTopicsPath">
         <div ng-messages="scormForm.blindTopicsPath.$error">
           <div ng-message="required">É obrigatório informar o caminho do diretório dos tópicos para deficientes visuais.</div>
@@ -53,7 +53,7 @@
     </div>
 
     <md-input-container class="md-block input-title-form">
-      <label>URL base para os vídeos em libras*</label>
+      <label>URL base para os vídeos em libras</label>
       <input ng-model="scorm.aslVideoPath" required name="aslVideoPath">
       <div ng-messages="scormForm.aslVideoPath.$error">
         <div ng-message="required">É obrigatório informar a URL base para os vídeos em libras.</div>
@@ -61,7 +61,7 @@
     </md-input-container>
 
     <div>
-      <p>Tipo de Scrum</p>
+      <p>Tipo de Scrum*</p>
       <select ng-model="scorm.type" required>
         <option value="">Selecione um tipo de SCORM</option>
         <option value="CDD">CDD</option>
@@ -77,7 +77,7 @@
       <h4>Tópico {{$index+1}}</h4>
       <div layout="row" style="margin-top: 0px">
         <md-input-container class ="md-block input-title-form">
-          <label>Título do tópico*</label>
+          <label>Título do tópico</label>
           <input ng-model="topic.topicsPath" required name="topicTitle">
           <div ng-messages="scormForm.topicTitle.$error">
             <div ng-message="required">É obrigatório informar o título do tópico.</div>
@@ -85,7 +85,7 @@
         </md-input-container>
 
         <md-input-container class ="md-block input-title-form right-elements">
-          <label>Nome completo do arquivo do tópico*</label>
+          <label>Nome completo do arquivo do tópico</label>
           <input ng-model="topic.fullFileName" required name="fullFileName">
           <div ng-messages="scormForm.fullFileName.$error">
             <div ng-message="required">É obrigatório informar o nome completo do arquivo do tópico.</div>
@@ -113,7 +113,7 @@
           </md-input-container>
 
           <md-input-container class ="md-block input-title-form right-elements">
-            <label>Tag ID da página*</label>
+            <label>Tag ID da página</label>
             <input ng-model="page.tagID" required name="tagID">
             <div ng-messages="scormForm.tagID.$error">
               <div ng-message="required">É obrigatório informar a Tag ID da página.</div>
@@ -132,7 +132,7 @@
           <h4>Vídeo em libras {{$index + 1}}</h4>
           <div layout="row" style="margin-top: 0px">
             <md-input-container class ="md-block input-title-form">
-              <label>Nome completo do vídeo (com extensão)*</label>
+              <label>Nome completo do vídeo (com extensão)</label>
               <input ng-model="video.name" required name="videoName">
               <div ng-messages="scormForm.videoName.$error">
                 <div ng-message="required">É obrigatório informar o nome completo do vídeo.</div>
@@ -174,7 +174,7 @@
       </md-input-container>
 
       <div layout="row" layout-align="end center" class="divFootPageFormPage">
-        <md-button class="md-raised md-primary" ng-disabled="false" ng-click="exportFile(filename)">Exportar</md-button>
+        <md-button class="md-raised md-primary" ng-disabled="scormForm.$invalid" ng-click="exportFile(filename)">Exportar</md-button>
       </div>
     </div>
 

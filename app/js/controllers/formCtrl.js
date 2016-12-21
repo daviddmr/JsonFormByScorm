@@ -5,11 +5,15 @@ angular.module("jsonForm")
     $scope.title = "Formulário de informações do SCORM";
     $scope.scorm = {};
     $scope.scorm.topics = [{id: 1}];
-    $scope.types = ["CDD, WebAula"];
-    
+
     $scope.addNewTopic = function() {
-      var newTopic = $scope.scorm.topics.length+1;
-      $scope.scorm.topics.push({'id': newTopic});
+      var size = $scope.scorm.topics.length;
+      if(size > 0) {
+        var lastElement = $scope.scorm.topics[size-1];
+        $scope.scorm.topics.push({'id': lastElement.id + 1});
+      } else {
+        $scope.scorm.topics.push({'id': 1});
+      }
     };
 
     $scope.removeTopic = function(index) {
@@ -30,7 +34,8 @@ angular.module("jsonForm")
         $scope.scorm.topics[index].pages = newPage;
       } else {
         var size = $scope.scorm.topics[index].pages.length;
-        var newPage = {id: size+1};
+        var lastElement = $scope.scorm.topics[index].pages[size-1];
+        var newPage = {id: lastElement.id + 1};
         $scope.scorm.topics[index].pages.push(newPage);
       }
 
@@ -41,7 +46,6 @@ angular.module("jsonForm")
     };
 
     $scope.addNewVideo = function(grandFatherIndex, fatherIndex) {
-      console.log(grandFatherIndex, fatherIndex);
       if($scope.scorm.topics[grandFatherIndex].pages[fatherIndex].signVideos == undefined) {
         fillVideos(grandFatherIndex, fatherIndex, true);
       } else {
@@ -55,16 +59,41 @@ angular.module("jsonForm")
         $scope.scorm.topics[grandFatherIndex].pages[fatherIndex].signVideos = newVideo;
       } else {
         var size = $scope.scorm.topics[grandFatherIndex].pages[fatherIndex].signVideos.length;
-        var newVideo = {id: size+1};
+        var lastElement = $scope.scorm.topics[grandFatherIndex].pages[fatherIndex].signVideos[size-1];
+        var newVideo = {id: lastElement.id + 1};
         $scope.scorm.topics[grandFatherIndex].pages[fatherIndex].signVideos.push(newVideo);
       }
-      console.log(newVideo);
-      console.log($scope.scorm.topics[grandFatherIndex].pages[fatherIndex].signVideos);
     }
 
     $scope.removeVideo = function(grandFatherIndex, fatherIndex, index) {
       console.log(grandFatherIndex, fatherIndex, index);
       $scope.scorm.topics[grandFatherIndex].pages[fatherIndex].signVideos.splice(index, 1);
     };
+
+    $scope.exportFile = function(filename){
+
+        var data = $scope.scorm;
+        filename = filename + ".json";
+        if(!data) {
+            console.error('Console.save: No data');
+            return;
+        }
+
+        if(!filename) filename = 'console.json';
+
+        if(typeof data === "object"){
+            data = JSON.stringify(data, undefined, 4)
+        }
+
+        var blob = new Blob([data], {type: 'text/json'}),
+            e    = document.createEvent('MouseEvents'),
+            a    = document.createElement('a');
+
+        a.download = filename;
+        a.href = window.URL.createObjectURL(blob);
+        a.dataset.downloadurl =  ['text/json', a.download, a.href].join(':');
+        e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        a.dispatchEvent(e)
+    }
 
 }]);	

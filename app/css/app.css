@@ -1,87 +1,11 @@
-.jumbotron {
-    width: 1150px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+.div-main-form-page {
+  width: 800px;
+  margin-top: 15px;
+  margin-left: 85px;
 }
 
-.divMainListPage{
-    width: 800px;
-    margin-top: 30px;
-    margin-left: 85px;
-}
-
-.labelTitlePages{
-    font-size: 24px;
-    color: darkslategrey
-}
-
-.divTitleListPage{
-    font-size: 24px;
-    color: darkslategrey;
-}
-
-.divSearchList{
-    margin-top: 35px;
-}
-
-.inputSearchTable{
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 10px;
-    vertical-align: middle;
-}
-
-.iconMagnifyingGlass{
-    margin-right: 20px;
-    vertical-align: middle;
-}
-
-.inputContainerLastName{
-    margin-top: 37px;
-}
-
-.divDeleteUsers{
-    margin-top: 10px;
-}
-
-.table tr{
-    text-align: center;
-}
-
-.checkBoxForDelete {
-    margin-top: 15px; margin-left: 10px;
-}
-
-.tableTdRowItemsListPage{
-    vertical-align: middle;
-}
-
-.table th{
-    text-align: center;
-}
-
-.tr{
-    text-align: center;
-}
-.th {
-    text-align: center;
-    color: #00c853;
-}
-.td {
-    text-align: center;
-}
-.selected {
-    background-color: #CFD8DC;
-}
-.bold {
-    font-weight: bold;
-}
-
-.divMainFormPage{
-    width: 800px;
-    margin-top: 15px;
-    margin-left: 85px;
+.div-ident {
+  margin-left: 50px;
 }
 
 .input-title-form {
@@ -94,43 +18,4 @@
 
 .input-title-form.right-elements {
   margin-left: 25px
-}
-
-.inputBirthdayForm{
-    margin-top: 12px;
-}
-
-.inputAddressComplementForm{
-    margin-left: 15px;
-}
-
-.inputDistrictForm{
-    margin-top: 20px;
-}
-
-.inputTelephoneForm{
-    margin-left: 15px;
-}
-
-.inputPlaceHolderForm{
-    margin-bottom: 0;
-    color: #BDBDBD;
-}
-
-.inputPlaceHolderFormBirthday{
-    margin-bottom: 0;
-    margin-left: 15px;
-    color: #BDBDBD;
-}
-
-.inputContainersForm{
-    margin-top: 0;
-}
-
-.divInputCpf{
-    margin-left: 15px;
-}
-
-.divFootPageFormPage{
-    margin-bottom: 30px;
 }

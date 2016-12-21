@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/daviddmr/JsonFormByScorm/issues"
   },
-  "homepage": "https://github.com/daviddmr/JsonFormByScorm#readme"
+  "homepage": "https://github.com/daviddmr/JsonFormByScorm#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }

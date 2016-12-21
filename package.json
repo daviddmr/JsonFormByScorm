@@ -18,6 +18,12 @@
   },
   "homepage": "https://github.com/daviddmr/JsonFormByScorm#readme",
   "dependencies": {
+    "angular": "^1.6.0",
+    "angular-animate": "^1.6.0",
+    "angular-aria": "^1.6.0",
+    "angular-material": "^1.1.1",
+    "angular-messages": "^1.6.0",
+    "angular-route": "^1.6.0",
     "express": "^4.14.0"
   }
 }

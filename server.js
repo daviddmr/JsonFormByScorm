@@ -12,7 +12,7 @@ app.use(express.static(rootDir));
 //app.set('view engine', 'ejs');
 
 app.all('/*', function(req, res) {
- res.sendFile(path.resolve(rootDir, 'index.html'));
+ res.sendFile(path.resolve(rootDir, 'app/index.html'));
 });
 
 app.listen(app.get('port'), function() {

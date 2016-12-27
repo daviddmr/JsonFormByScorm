@@ -73,13 +73,14 @@ angular.module("jsonForm")
     $scope.exportFile = function(filename){
 
         var data = $scope.scorm;
+
+        if(!filename) filename = 'index';
         filename = filename + ".json";
+
         if(!data) {
             console.error('Console.save: No data');
             return;
         }
-
-        if(!filename) filename = 'file.json';
 
         if(typeof data === "object"){
             data = JSON.stringify(data, undefined, 4)

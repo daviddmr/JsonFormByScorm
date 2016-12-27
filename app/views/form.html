@@ -78,7 +78,7 @@
       <div layout="row" style="margin-top: 0px">
         <md-input-container class ="md-block input-title-form">
           <label>Título do tópico</label>
-          <input ng-model="topic.topicsPath" required name="topicTitle">
+          <input ng-model="topic.title" required name="topicTitle">
           <div ng-messages="scormForm.topicTitle.$error">
             <div ng-message="required">É obrigatório informar o título do tópico.</div>
           </div>
@@ -104,13 +104,13 @@
 
         <h4>Página {{$index + 1}}</h4>
         <div layout="row" style="margin-top: 0px">
-          <md-input-container class ="md-block input-title-form">
-            <label>Título da página*</label>
-            <input ng-model="page.title" required name="pageTitle">
-            <div ng-messages="scormForm.pageTitle.$error">
-              <div ng-message="required">É obrigatório informar o título da página.</div>
-            </div>
-          </md-input-container>
+          <!--<md-input-container class ="md-block input-title-form">-->
+            <!--<label>Título da página*</label>-->
+            <!--<input ng-model="page.title" required name="pageTitle">-->
+            <!--<div ng-messages="scormForm.pageTitle.$error">-->
+              <!--<div ng-message="required">É obrigatório informar o título da página.</div>-->
+            <!--</div>-->
+          <!--</md-input-container>-->
 
           <md-input-container class ="md-block input-title-form right-elements">
             <label>Tag ID da página</label>

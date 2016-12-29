@@ -54,8 +54,8 @@
 
     <md-input-container class="md-block input-title-form">
       <label>URL base para os vídeos em libras</label>
-      <input ng-model="scorm.aslVideoPath" required name="aslVideoPath">
-      <div ng-messages="scormForm.aslVideoPath.$error">
+      <input ng-model="scorm.aslVideoUrl" required name="aslVideoUrl">
+      <div ng-messages="scormForm.aslVideoUrl.$error">
         <div ng-message="required">É obrigatório informar a URL base para os vídeos em libras.</div>
       </div>
     </md-input-container>
@@ -114,9 +114,9 @@
 
           <md-input-container class ="md-block input-title-form right-elements">
             <label>Tag ID da página</label>
-            <input ng-model="page.tagID" required name="tagID">
-            <div ng-messages="scormForm.tagID.$error">
-              <div ng-message="required">É obrigatório informar a Tag ID da página.</div>
+            <input ng-model="page.tagId" required name="tagId">
+            <div ng-messages="scormForm.tagId.$error">
+              <div ng-message="required">É obrigatório informar a Tag Id da página.</div>
             </div>
           </md-input-container>
 
